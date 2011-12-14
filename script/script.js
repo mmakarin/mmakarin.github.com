@@ -1,10 +1,10 @@
 $(function() {
-	var canvas = $("canvas")[0];
+	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
-	var color = "orange";
+	var color = "black";
 	var angle = 0;
 	
-	var center = new Point(400, 400, 100);
+	var center = new Point(canvas.height / 2, canvas.width / 2, 100);
 	var side = 100;
 	var halfSide = side / 2;
 	
@@ -39,15 +39,16 @@ $(function() {
 		
 		for (var i = 0; i < edges.length; i++) {
 			var edge = edges[i];
-			ctx.beginPath();
-			
 			var start = edge[0];
 			var end = edge[1];
+			
+			ctx.beginPath();
 			
 			ctx.moveTo(start.x, start.y);
 			ctx.lineTo(end.x, end.y);
 			
 			ctx.closePath();
+			ctx.strokeStyle = color;
 			ctx.stroke();
 		}
 		

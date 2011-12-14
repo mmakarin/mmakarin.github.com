@@ -31,12 +31,7 @@ function rotateZ(point, angle) {
 function rotateAroundEachAxis(point, origin, angle) {
 	var translatedPoint = translate(point, -origin.x, -origin.y, -origin.z);
 	var rotatedPoint = rotateZ(rotateY(rotateX(translatedPoint, angle), angle), angle);
-	//var rotatedPoint = rotateY(translatedPoint, angle);
 	var resultPoint = translate(rotatedPoint, +origin.x, +origin.y, +origin.z);
 	
 	return resultPoint;
-}
-
-var isNear = function(point, target) {
-	return Math.abs(target.x - point.x) < 5 && Math.abs(target.y - point.y) < 5;
 }
